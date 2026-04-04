@@ -20,13 +20,13 @@ aliases, err := client.Domains().Domain("example.com").Aliases().List(ctx)
 
 ## Resources
 
-| Resource | Scope |
-|---|---|
-| Domains | `client.Domains()` |
-| Aliases | `client.Domains().Domain(name).Aliases()` |
-| Rewrites | `client.Domains().Domain(name).Rewrites()` |
-| Mailboxes | `client.Domains().Domain(name).Mailboxes()` |
-| Identities | `...Mailboxes().Mailbox(name).Identities()` |
+| Resource    | Scope                                        |
+|-------------|----------------------------------------------|
+| Domains     | `client.Domains()`                           |
+| Aliases     | `client.Domains().Domain(name).Aliases()`    |
+| Rewrites    | `client.Domains().Domain(name).Rewrites()`   |
+| Mailboxes   | `client.Domains().Domain(name).Mailboxes()`  |
+| Identities  | `...Mailboxes().Mailbox(name).Identities()`  |
 | Forwardings | `...Mailboxes().Mailbox(name).Forwardings()` |
 
 ## Error handling
@@ -35,7 +35,7 @@ API errors come back as `*migadu.Error` with a status code and message.
 
 ```go
 if apiErr, ok := errors.AsType[*migadu.Error](err); ok {
-    fmt.Println(apiErr.StatusCode, apiErr.Message)
+fmt.Println(apiErr.StatusCode, apiErr.Message)
 }
 ```
 
