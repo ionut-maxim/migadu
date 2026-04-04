@@ -3,9 +3,7 @@ package migadu
 import (
 	"context"
 	"errors"
-	"io"
 	"net/http"
-	"strings"
 	"testing"
 )
 
@@ -32,15 +30,6 @@ const mailboxJSON = `{
 }`
 
 const mailboxesJSON = `{"mailboxes": [` + mailboxJSON + `]}`
-
-func mailboxClient(statusCode int, body string) *Client {
-	return newTestClient(&mockTransport{
-		resp: &http.Response{
-			StatusCode: statusCode,
-			Body:       io.NopCloser(strings.NewReader(body)),
-		},
-	})
-}
 
 func Test_Mailboxes_List(t *testing.T) {
 	tests := []struct {

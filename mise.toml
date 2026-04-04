@@ -1,2 +1,6 @@
 [tools]
-go = "latest"
+go = "1.26.1"
+
+[tasks.test]
+run = "go test ./..."
+description = "Run all tests"
