@@ -39,6 +39,10 @@ if apiErr, ok := errors.AsType[*migadu.Error](err); ok {
 }
 ```
 
+## License
+
+MIT
+
 ## Examples
 
 See the [examples](./examples) folder for working code covering each resource.
